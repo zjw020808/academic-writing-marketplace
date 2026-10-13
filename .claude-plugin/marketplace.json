@@ -1,21 +1,21 @@
 {
   "name": "academic-writing-marketplace",
   "owner": { "name": "lenovo" },
-  "description": "Local marketplace bundling the latest nature-skills, academic-research-skills (ARS), and writing-quality skills.",
+  "description": "Local marketplace bundling the latest nature-skills, academic-research-skills (ARS), writing-quality skills, and research-planning skills.",
   "plugins": [
     {
       "name": "nature-skills",
       "source": "./nature-skills",
-      "description": "22 Nature-standard academic skills: research writing & proposals, polishing, reviewer simulation, statistics, citation retrieval/verification, data availability, figures, paper reading/translation, reviewer responses, slides.",
+      "description": "22+ Nature-standard academic skills: research writing & proposals, polishing, reviewer simulation, statistics, citation retrieval/verification, data availability, figures, paper reading/translation, reviewer responses, slides.",
       "version": "1.1.0",
       "category": "academic"
     },
     {
-      "name": "academic-research-skills",
-      "source": "./academic-research-skills",
-      "description": "ARS v3.23.0 — production-grade research → write → review → revise pipeline. 5 skills, 35+ modes, Material Passport pipeline.",
-      "version": "3.23.0",
-      "license": "CC-BY-NC-4.0"
+      "name": "research-planning",
+      "source": "./research-planning",
+      "description": "Research-lifecycle planning: literature-triage-matrix (compare a paper set), gap-to-topic (3-gate go/no-go on a thesis topic), research-design-helper (Socratic study design), research-context-compressor (persist context across sessions), paper-memory-builder (claim/evidence memory). Prompt-only, no Zotero/CLI.",
+      "version": "1.0.0",
+      "category": "academic"
     },
     {
       "name": "writing-skills",
@@ -23,6 +23,13 @@
       "description": "Remove AI tells (humanizer, humanizer-zh) and reduce defensive/hedged writing (anti-defensive-writing, anti-defensive-writing-zh). Full versions.",
       "version": "1.0.0",
       "category": "writing"
+    },
+    {
+      "name": "academic-research-skills",
+      "source": "./academic-research-skills",
+      "description": "ARS v3.23.0 — production-grade research → write → review → revise pipeline. 5 skills, 35+ modes, Material Passport pipeline.",
+      "version": "3.23.0",
+      "license": "CC-BY-NC-4.0"
     }
   ]
 }

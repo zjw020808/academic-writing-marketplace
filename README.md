@@ -8,6 +8,7 @@
 | 插件 | 内容 | 上游 |
 |---|---|---|
 | `nature-skills` | 23 个 Nature 标准学术技能（含 nature-proposal-writer） | [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) |
+| `research-planning` | 5 个研究生命周期技能：literature-triage-matrix、gap-to-topic、research-design-helper、research-context-compressor、paper-memory-builder（纯 prompt，无需 Zotero/CLI） | [WenyuChiou/research-hub](https://github.com/WenyuChiou/research-hub) |
 | `writing-skills` | 4 个完整版写作技能：humanizer、humanizer-zh、anti-defensive-writing、anti-defensive-writing-zh（含 references/scripts） | blader / op7418 / Kiterlin / Devilyuu |
 | `academic-research-skills` | ARS v3.23.0（5 技能） | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) |
 
@@ -18,7 +19,7 @@
 
 1. 把本仓库推送到你的 GitHub（见下）。
 2. Claude Desktop：**设置 → Plugins → Add marketplace → GitHub repo**，填 `<用户名>/<仓库名>`。
-3. 在插件列表里安装 `nature-skills`、`writing-skills`、`academic-research-skills`。
+3. 在插件列表里安装需要的插件（推荐 `nature-skills` + `research-planning`）。
 
 ## 实时更新（自动同步上游）
 

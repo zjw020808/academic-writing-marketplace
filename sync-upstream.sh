@@ -59,6 +59,36 @@ cat > "$ROOT/writing-skills/.claude-plugin/plugin.json" <<'JSON'
 }
 JSON
 
+# ------------------------------------------------------------- research-planning
+# Five prompt-only research-lifecycle skills vendored from WenyuChiou/research-hub.
+# No Zotero / CLI required. Sibling "research-hub/references" and top-level "docs"
+# are copied so the skills' relative links resolve.
+echo "== research-planning (from research-hub) =="
+clone https://github.com/WenyuChiou/research-hub.git "$WORK/research-hub"
+rm -rf "$WORK/research-hub/.git"
+rm -rf "$ROOT/research-planning/skills"
+mkdir -p "$ROOT/research-planning/skills/research-hub/references" "$ROOT/research-planning/docs"
+for s in literature-triage-matrix gap-to-topic research-design-helper research-context-compressor paper-memory-builder; do
+  echo "   - $s"
+  cp -r "$WORK/research-hub/skills/$s" "$ROOT/research-planning/skills/$s"
+  rm -rf "$ROOT/research-planning/skills/$s/evals"
+done
+cp "$WORK/research-hub/skills/research-hub/references/research-protocol.md"     "$ROOT/research-planning/skills/research-hub/references/" 2>/dev/null || true
+cp "$WORK/research-hub/skills/research-hub/references/source-claim-audit.md"   "$ROOT/research-planning/skills/research-hub/references/" 2>/dev/null || true
+cp "$WORK/research-hub/docs/research-workspace-manifest.md"                    "$ROOT/research-planning/docs/" 2>/dev/null || true
+mkdir -p "$ROOT/research-planning/.claude-plugin"
+cat > "$ROOT/research-planning/.claude-plugin/plugin.json" <<'JSON'
+{
+  "name": "research-planning",
+  "description": "Research-lifecycle planning skills: compare a known paper set (literature-triage-matrix), decide whether a research gap is worth pursuing (gap-to-topic), design the study (research-design-helper), persist project context across sessions (research-context-compressor), and build manuscript claim/evidence memory (paper-memory-builder). Prompt-only; no Zotero or CLI required. From WenyuChiou/research-hub.",
+  "version": "1.0.0",
+  "author": { "name": "Wenyu Chiou" },
+  "license": "MIT",
+  "homepage": "https://github.com/WenyuChiou/research-hub",
+  "keywords": ["research", "planning", "topic-selection", "literature", "study-design", "evidence"]
+}
+JSON
+
 # ----------------------------------------------------- academic-research-skills
 # You can ALSO add ARS directly from upstream (it ships its own marketplace.json).
 # Kept mirrored here so this marketplace is self-contained.

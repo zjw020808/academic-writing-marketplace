@@ -1,0 +1,9 @@
+{
+  "name": "research-planning",
+  "description": "Research-lifecycle planning skills: compare a known paper set (literature-triage-matrix), decide whether a research gap is worth pursuing (gap-to-topic), design the study (research-design-helper), persist project context across sessions (research-context-compressor), and build manuscript claim/evidence memory (paper-memory-builder). Prompt-only; no Zotero or CLI required. From WenyuChiou/research-hub.",
+  "version": "1.0.0",
+  "author": { "name": "Wenyu Chiou" },
+  "license": "MIT",
+  "homepage": "https://github.com/WenyuChiou/research-hub",
+  "keywords": ["research", "planning", "topic-selection", "literature", "study-design", "evidence"]
+}
