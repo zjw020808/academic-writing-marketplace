@@ -1,0 +1,8 @@
+{
+  "name": "writing-skills",
+  "description": "Writing-quality skills: remove AI tells (humanizer, humanizer-zh) and reduce defensive/hedged academic writing (anti-defensive-writing, anti-defensive-writing-zh). Full versions including reference files and scripts.",
+  "version": "1.0.0",
+  "author": { "name": "blader / op7418 / Kiterlin / Devilyuu" },
+  "license": "MIT",
+  "keywords": ["writing", "editing", "ai-detection", "academic", "hedging"]
+}

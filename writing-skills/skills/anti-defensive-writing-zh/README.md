@@ -1,0 +1,138 @@
+# anti-defensive-writing-zh
+
+一个中文写作 Skill，可在 Claude Code、Codex 等支持 Agent Skills 格式（`SKILL.md` 目录）的工具里使用：写作、审稿、改稿时，去掉没有依据的自我削弱、重复免责、层层对冲和 AI 套话，同时守住事实、必要的边界和作者自己的语气。
+
+它不是 AIGC 检测的对抗工具，也不判断作者身份、不输出“AI 含量”分数。目标只有一个：让文字对读者更清楚、更可信。
+
+## 它做什么
+
+- **从零写**：先想清楚给谁看、读完能做什么，再从材料里找要点，不凭空补事实。
+- **改稿**：分校对、润色（默认）、改写三档；先分清“内容债”和“语言债”，内容空缺改写解决不了就直说。
+- **只诊断**：标出影响最大的 3–5 处，每条给位置、原句片段、问题和修改方向，不附改写稿。
+- **文体取舍**：论文、审稿回复、课题申报、教学材料、小红书/公众号、项目说明、邮件、公文各有默认力度。
+
+核心约束（优先级从高到低）：事实与承诺 > 必要边界与行动指令 > 用户本轮的明确要求 > 作者语气与文体规范 > 去模板。
+
+典型做法：
+
+- 没有依据的评价（“显著提升”“值得推广”）有数据就改成数据，没有就删，不编数字。
+- 原文里真实的犹豫、未完成、局限，原样保留，写准、写一次、放在相关主张旁边。
+- “不是 X，而是 Y”一类翻案句拿掉虚设的 X 后，Y 若还是抽象判断，整句删，不换壳。
+- 原稿本来就清楚的，说明不用改，不硬改。
+
+## 安装
+
+Skill 就是一个目录，里面有 `SKILL.md`。把这个仓库克隆到所用工具的 skills 目录，目录名保持 `anti-defensive-writing-zh`。
+
+**Claude Code**
+
+macOS / Linux：
+
+```bash
+git clone https://github.com/Devilyuu/anti-defensive-writing-zh ~/.claude/skills/anti-defensive-writing-zh
+```
+
+Windows（PowerShell）：
+
+```powershell
+git clone https://github.com/Devilyuu/anti-defensive-writing-zh "$env:USERPROFILE\.claude\skills\anti-defensive-writing-zh"
+```
+
+重启 Claude Code 后生效。在 Claude.ai 网页端，可以把仓库打成 zip，在设置的 Skills 里上传。
+
+**Codex（CLI、IDE 插件、ChatGPT 桌面端）**
+
+macOS / Linux：
+
+```bash
+git clone https://github.com/Devilyuu/anti-defensive-writing-zh ~/.agents/skills/anti-defensive-writing-zh
+```
+
+Windows（PowerShell）：
+
+```powershell
+git clone https://github.com/Devilyuu/anti-defensive-writing-zh "$env:USERPROFILE\.agents\skills\anti-defensive-writing-zh"
+```
+
+只想在某个项目里用，就克隆到该项目的 `.agents/skills/` 下。Codex 会自动发现新 skill，没出现时重启一次。
+
+**其他工具**：WorkBuddy、CodeBuddy、Cursor、Gemini CLI 等支持 Agent Skills 格式的工具，放进各自文档写明的 skills 目录即可。
+
+**ChatGPT 网页端等不能装 skill 的环境**：新建一个自定义 GPT 或 Project，把 `SKILL.md` 和 `references/` 下的四个文件作为知识文件上传，指令里写“按 SKILL.md 的流程写作和改稿，需要时查 references”。`SKILL.md` 较长，放在知识文件里比直接贴进指令框稳。临时用也可以在对话开头贴 `SKILL.md` 全文，再贴稿子。这种用法不会自动触发，长稿深改时模型也不一定把 references 读全，效果比在 Agent 工具里差一些。
+
+更新时在 skill 目录里 `git pull`。
+
+## 怎么用
+
+直接说需求，满足以下情形会自动触发：
+
+- 说“反防御性写作”“去 AI 味”“太像 AI 写的”“自然一点”“别那么多可能/但是/仅供参考”“写具体点别空”。
+- 让它润色、改稿、诊断一段中文。
+- 让它写论文、课题申报、任务书、项目进展、小红书或公众号文案、邮件、工作总结等中文正文。
+
+示例：
+
+```text
+这是 AI 帮我写的家长群通知，读着太像 AI 了，帮我改改，改完我直接复制发群里。
+```
+
+```text
+只诊断，别改。告诉我这段哪几处最有问题、为什么、往哪个方向改。
+```
+
+项目里有 `CLAUDE.md`、`AGENTS.md` 等说明文件、术语表或样例稿时，它会先按项目约定和样例的语气来写，再套用自己的通用规则。
+
+只处理中文正文，不做翻译、纯摘要或代码注释。
+
+## 目录结构
+
+```text
+SKILL.md                        主流程：先守住内容 → 选处理方式 → 六步写作与改写 → 按文体取舍 → 交付
+references/
+  defensive-forms.md            防御填充与必要边界的判别法
+  patterns-zh.md                中文 AI 痕迹候选信号表（强/弱信号，每行写保留条件）
+  genre-guidance.md             各文体的取舍
+  examples-zh.md                前后对照例子
+scripts/
+  find_candidates.py            列出稿子里值得回查的候选位置，只报告不改写
+  check_facts.py                比对原稿和改稿的数字、日期、引用等硬信息
+CHANGELOG.md                    更新记录
+```
+
+两个脚本零依赖，Python 3.8+，Skill 在文件模式下会自己调用，也可以单独跑：
+
+```bash
+python scripts/find_candidates.py 稿子.md            # 全部类别
+python scripts/find_candidates.py 稿子.md --counts   # 只看各类数量
+python scripts/find_candidates.py 稿子.md --plain    # 要贴到微信、Word、邮件时，加查 Markdown 符号
+python scripts/check_facts.py 原稿.md 改稿.md        # 比对硬信息，只报告差异
+```
+
+脚本的命中只是候选，不是改写依据。
+
+## 效果与局限
+
+下面的评测都是让同一个模型（Claude Opus）分别用和不用 Skill 完成同一个任务，再由不知道配置的评审盲评打分。每题每种配置只跑了一次，评审和执行是同一个模型，结果只能当参考。
+
+**科研写作（去 AI 腔）**：两道专项题。
+
+| 题目 | 去痕迹彻底度（5 分制） | 总体（10 分制） |
+|---|---|---|
+| 论文讨论段 | 用 Skill 5，不用 2 | 8 比 3 |
+| 课题题目与研究意义 | 用 Skill 4，不用 3 | 8 比 4 |
+
+不用 Skill 时，模型能换掉套话里的词，却常常留下句子骨架：“真正重要的不是技术本身，而是如何使用技术”被改成“比起技术本身，如何使用技术更为关键”，“提供了有力支撑”被改成“提供了实证支撑”，读者照样一眼看出是 AI 写的。Skill 处理的是这一层：翻案句、段末拔高、没有来源的“研究表明”、层层叠加的限定。这两道题和规则出自同一份痕迹清单，结果偏向 Skill；覆盖反防御性写作的科研写作专项评测还在计划中。
+
+**通用文体留出集**：8 道没有参与规则制定的题（家长群通知、项目进展、教学反思诊断、人写稿润色、系统更新公告、简历自评、README 等）。用 Skill 7 胜 1 负，总体分 8.12 比 6.75；事实忠实 4.88 比 4.12，没有误伤 4.75 比 3.75。这组题里的 AI 痕迹主要在表层（emoji、Markdown、聊天开场白、套话开头），强模型被明确要求“去 AI 味”时自己也能清掉，差距主要来自不编造、不把人写的稿子改坏、不留模板结构。
+
+**版本说明**：上面两组数据测的是 2.1 版。当前版本在 2.1 的基础上（2026-10-06）补了“AI 起草的稿子先和用户给的事实对账”、技术文档去重复、群通知和简历的写法等；和 2.1 在 6 道题上盲评对比，2 胜 4 负，总分持平（47 比 47）。
+
+已知短板：
+
+- 材料很少时正文容易偏薄。它会在正文后说明缺什么，不会替你编。
+- 直接改 README 这类技术文档时，2.1 会把没核实的功能说法留在文件里；当前版本已加规则修正，还没有单独复测。
+- 耗时约为不用 Skill 的三倍。
+
+## 许可证
+
+[MIT](LICENSE)

@@ -1,0 +1,28 @@
+{
+  "name": "academic-writing-marketplace",
+  "owner": { "name": "lenovo" },
+  "description": "Local marketplace bundling the latest nature-skills, academic-research-skills (ARS), and writing-quality skills.",
+  "plugins": [
+    {
+      "name": "nature-skills",
+      "source": "./nature-skills",
+      "description": "22 Nature-standard academic skills: research writing & proposals, polishing, reviewer simulation, statistics, citation retrieval/verification, data availability, figures, paper reading/translation, reviewer responses, slides.",
+      "version": "1.1.0",
+      "category": "academic"
+    },
+    {
+      "name": "academic-research-skills",
+      "source": "./academic-research-skills",
+      "description": "ARS v3.23.0 — production-grade research → write → review → revise pipeline. 5 skills, 35+ modes, Material Passport pipeline.",
+      "version": "3.23.0",
+      "license": "CC-BY-NC-4.0"
+    },
+    {
+      "name": "writing-skills",
+      "source": "./writing-skills",
+      "description": "Remove AI tells (humanizer, humanizer-zh) and reduce defensive/hedged writing (anti-defensive-writing, anti-defensive-writing-zh). Full versions.",
+      "version": "1.0.0",
+      "category": "writing"
+    }
+  ]
+}

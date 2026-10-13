@@ -1,0 +1,21 @@
+{
+  "name": "nature-skills",
+  "version": "1.1.0",
+  "description": "Academic skills for Claude Code meeting Nature journal standards — research writing, manuscript polishing, citation management, statistics, data availability, figures, and paper-to-presentation conversion",
+  "owner": {
+    "name": "Yuan1z0825"
+  },
+  "plugins": [
+    {
+      "name": "nature-skills",
+      "version": "1.1.0",
+      "source": "./",
+      "description": "22 Claude skills for Nature-standard academic work: research writing and proposals, polishing, reviewer simulation, statistics, citation retrieval and verification, data availability, figures, paper reading and translation, reviewer responses, and slides.",
+      "author": {
+        "name": "Yuan1z0825"
+      },
+      "keywords": ["nature", "academic", "science", "figure", "writing", "citation", "publication", "proposal", "reviewer"],
+      "category": "academic"
+    }
+  ]
+}
