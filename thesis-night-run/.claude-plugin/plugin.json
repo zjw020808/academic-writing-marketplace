@@ -1,0 +1,15 @@
+{
+  "name": "thesis-night-run",
+  "description": "中文学位论文的夜间批处理与人工介入分级：把待办分成可自动跑、需复核、必须等人三档，生成夜间任务清单与晨报；只写候选目录，不碰正式稿与决策记录。",
+  "version": "1.0.0",
+  "author": { "name": "lenovo" },
+  "license": "MIT",
+  "keywords": [
+    "thesis",
+    "workflow",
+    "task-triage",
+    "autonomy",
+    "night-run",
+    "human-in-the-loop"
+  ]
+}

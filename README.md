@@ -10,6 +10,7 @@
 | `nature-skills` | 23 个 Nature 标准学术技能（含 nature-proposal-writer） | [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) |
 | `research-planning` | 5 个研究生命周期技能：literature-triage-matrix、gap-to-topic、research-design-helper、research-context-compressor、paper-memory-builder（纯 prompt，无需 Zotero/CLI） | [WenyuChiou/research-hub](https://github.com/WenyuChiou/research-hub) |
 | `physics-thesis-revision` | 3 个理论物理/量子信息中文学位论文改稿技能：段落主旨与段间逻辑、摘要与第一章绪论、主张—证据审计（原创改写，例子按子系统 QFI 与纠缠判据重写） | 本仓库原创；方法来源见插件 README |
+| `thesis-night-run` | 1 个论文任务分级与夜间批处理技能：T1 可自动、T2 需复核、Gated 必须等人；生成夜间清单与晨报，只写候选目录 | 本仓库原创 |
 | `writing-skills` | 4 个完整版写作技能：humanizer、humanizer-zh、anti-defensive-writing、anti-defensive-writing-zh（含 references/scripts） | blader / op7418 / Kiterlin / Devilyuu |
 | `academic-research-skills` | ARS v3.23.0（5 技能） | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) |
 
@@ -25,6 +26,10 @@
 - `claim-evidence-review`：把断言绑定到定义、定理、证明、引用或可复算数值，标出方向、范围、强度、因果与术语越界。
 
 这三个技能是**原创改写**，例子按子系统量子 Fisher 信息与纠缠判据重写，不包含上游文字或示例；方法来源在 `physics-thesis-revision/README.md` 注明。该插件不参与 `sync-upstream.sh` 的自动同步，升级时直接改仓库内文件。
+
+### thesis-night-run
+
+面向“全流程都要我在场”的问题：先把任务分成 T1 可自动、T2 可自动但需复核、Gated 必须等人三档；每个 gated 项写清 gate 原因与释放成本；生成夜间任务清单和晨报。夜间只读 `01`～`05`、只写 `06_讨论与确认/夜间批处理_日期/`，不碰 `07`/`08`、不改已确认正文与决策记录。配合 Claude Desktop 的定时任务使用；应用需保持打开，关掉则下次启动补跑。
 
 ## 安装
 
