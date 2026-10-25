@@ -31,9 +31,9 @@
 
 面向“全流程都要我在场”的问题：先把任务分成 T1 可自动、T2 可自动但需复核、Gated 必须等人三档；每个 gated 项写清 gate 原因与释放成本；生成夜间任务清单和晨报。夜间只读 `01`～`05`、只写 `06_讨论与确认/夜间批处理_日期/`，不碰 `07`/`08`、不改已确认正文与决策记录。配合 Claude Desktop 的定时任务使用；应用需保持打开，关掉则下次启动补跑。
 
-### 最小市场（只装两个论文插件）
+### 最小市场（只装 thesis-night-run）
 
-如果完整市场同步失败，或只想装这两个论文插件，用仓库根目录的 `marketplace.json`。它只列 `physics-thesis-revision` 与 `thesis-night-run`，市场名为 `thesis-marketplace`，不与完整市场 `academic-writing-marketplace` 重名。
+如果完整市场同步失败，又不想移除现有市场和已装插件，用仓库根目录的 `marketplace.json`。它只列 `thesis-night-run` 一个插件，市场名为 `thesis-night-run-marketplace`，与现有 `academic-writing-marketplace` 不重名，也不会覆盖已装的 `physics-thesis-revision`。
 
 Claude Desktop → **Add marketplace → Marketplace URL**，填：
 
@@ -47,7 +47,7 @@ https://raw.githubusercontent.com/zjw020808/academic-writing-marketplace/main/ma
 https://gitee.com/dr_wangchuan/academic-writing-marketplace/raw/main/marketplace.json
 ```
 
-添加前先在插件设置里移除旧的同名市场，避免缓存冲突。
+不需要移除任何现有市场；添加后只会出现 `thesis-night-run` 一个插件。
 
 ## 安装
 
