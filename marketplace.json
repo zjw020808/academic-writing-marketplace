@@ -1,7 +1,7 @@
 {
   "name": "thesis-night-run-marketplace",
   "owner": { "name": "lenovo" },
-  "description": "只含 thesis-night-run 一个插件的精简市场。用于在不移除现有市场、不卸载已装插件的前提下单独安装夜间批处理技能。",
+  "description": "只含 thesis-night-run 一个插件的精简市场。用于在不移除现有市场、不卸载已装插件的前提下单独安装任务规划与夜间批处理技能。",
   "plugins": [
     {
       "name": "thesis-night-run",
@@ -11,8 +11,8 @@
         "path": "thesis-night-run",
         "ref": "main"
       },
-      "description": "中文学位论文的夜间批处理与人工介入分级：T1 可自动、T2 可自动但需复核、Gated 必须等人；生成夜间任务清单与晨报。",
-      "version": "1.0.0",
+      "description": "中文学位论文的任务规划与夜间批处理：thesis-project-plan 出阶段/任务/依赖/关键路径，task-triage-night-run 分级并排夜间清单与晨报。",
+      "version": "1.1.0",
       "category": "academic",
       "license": "MIT"
     }

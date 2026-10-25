@@ -28,8 +28,8 @@
     {
       "name": "thesis-night-run",
       "source": "./thesis-night-run",
-      "description": "中文学位论文的夜间批处理与人工介入分级：T1 可自动、T2 可自动但需复核、Gated 必须等人；生成夜间任务清单与晨报，只写候选目录，不碰正式稿与决策记录。",
-      "version": "1.0.0",
+      "description": "中文学位论文的任务规划与夜间批处理：thesis-project-plan 出阶段/任务/依赖/关键路径，task-triage-night-run 分级并排夜间清单与晨报。",
+      "version": "1.1.0",
       "category": "academic",
       "license": "MIT"
     },
