@@ -1,0 +1,18 @@
+{
+  "name": "physics-thesis-revision",
+  "description": "理论物理与量子信息方向中文学位论文的改稿技能：逐段主旨与段间逻辑诊断、摘要与第一章绪论结构、主张—证据审计。三个技能均为原创改写，例子按子系统量子 Fisher 信息与纠缠判据重写。",
+  "version": "1.0.0",
+  "author": { "name": "lenovo" },
+  "license": "MIT",
+  "keywords": [
+    "thesis",
+    "revision",
+    "academic-writing",
+    "quantum-information",
+    "theoretical-physics",
+    "paragraph-logic",
+    "abstract",
+    "introduction",
+    "claim-evidence"
+  ]
+}
