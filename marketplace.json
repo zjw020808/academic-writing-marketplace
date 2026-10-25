@@ -5,7 +5,12 @@
   "plugins": [
     {
       "name": "thesis-night-run",
-      "source": "./thesis-night-run",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zjw020808/academic-writing-marketplace.git",
+        "path": "thesis-night-run",
+        "ref": "main"
+      },
       "description": "中文学位论文的夜间批处理与人工介入分级：T1 可自动、T2 可自动但需复核、Gated 必须等人；生成夜间任务清单与晨报。",
       "version": "1.0.0",
       "category": "academic",

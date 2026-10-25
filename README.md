@@ -35,6 +35,8 @@
 
 如果完整市场同步失败，又不想移除现有市场和已装插件，用仓库根目录的 `marketplace.json`。它只列 `thesis-night-run` 一个插件，市场名为 `thesis-night-run-marketplace`，与现有 `academic-writing-marketplace` 不重名，也不会覆盖已装的 `physics-thesis-revision`。
 
+注意：**Marketplace URL 方式只下载 `marketplace.json`，不下载仓库里的插件目录**，所以插件源不能写相对路径，本目录用的是 `git-subdir` 对象源，指向本仓库的 `thesis-night-run` 子目录。
+
 Claude Desktop → **Add marketplace → Marketplace URL**，填：
 
 ```
@@ -47,7 +49,7 @@ https://raw.githubusercontent.com/zjw020808/academic-writing-marketplace/main/ma
 https://gitee.com/dr_wangchuan/academic-writing-marketplace/raw/main/marketplace.json
 ```
 
-不需要移除任何现有市场；添加后只会出现 `thesis-night-run` 一个插件。
+不需要移除任何现有市场；添加后只会出现 `thesis-night-run` 一个插件。Gitee 的 raw 地址也能读目录，但插件源固定指向 GitHub 仓库；如果 GitHub 不可达，需要把 `source.url` 改成 Gitee 仓库地址。
 
 ## 安装
 
