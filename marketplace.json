@@ -1,0 +1,23 @@
+{
+  "name": "thesis-marketplace",
+  "owner": { "name": "lenovo" },
+  "description": "只含两个论文插件的精简市场：physics-thesis-revision 与 thesis-night-run。用于在 Claude Desktop 中快速、稳定地安装，不加载 ARS、nature-skills 等大插件。",
+  "plugins": [
+    {
+      "name": "physics-thesis-revision",
+      "source": "./physics-thesis-revision",
+      "description": "理论物理与量子信息方向中文学位论文的改稿技能：逐段主旨与段间逻辑诊断、摘要与第一章绪论结构、主张—证据审计。",
+      "version": "1.0.0",
+      "category": "academic",
+      "license": "MIT"
+    },
+    {
+      "name": "thesis-night-run",
+      "source": "./thesis-night-run",
+      "description": "中文学位论文的夜间批处理与人工介入分级：T1 可自动、T2 可自动但需复核、Gated 必须等人；生成夜间任务清单与晨报。",
+      "version": "1.0.0",
+      "category": "academic",
+      "license": "MIT"
+    }
+  ]
+}
