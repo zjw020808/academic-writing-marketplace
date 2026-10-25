@@ -28,15 +28,21 @@
 
 ## 安装
 
-1. 把本仓库推送到你的 GitHub（见下）。
-2. Claude Desktop：**设置 → Plugins → Add marketplace → GitHub repo**，填 `<用户名>/<仓库名>`。
-3. 在插件列表里安装需要的插件（推荐 `nature-skills` + `research-planning`）。
+1. 把本仓库推送到你的 Gitee（见下）。
+2. Claude Desktop：**设置 → Plugins → Add marketplace → Git URL**，填
+   `https://gitee.com/<用户名>/<仓库名>.git`。
+   也可以选 **Marketplace URL**，填
+   `https://gitee.com/<用户名>/<仓库名>/raw/main/.claude-plugin/marketplace.json`。
+3. 在插件列表里安装需要的插件（推荐 `nature-skills` + `research-planning`；论文改稿用 `physics-thesis-revision`）。
 
 ## 实时更新（自动同步上游）
 
 `sync-upstream.sh` 会把每个上游的最新内容重新拉取并覆盖到本仓库；
 `.github/workflows/sync-upstream.yml` 让它**每天 03:00 UTC 自动运行**，也可在
 Actions 页面点 **Run workflow** 手动触发。
+
+> 注意：GitHub Actions 只在 GitHub 上运行；Gitee 不会执行该工作流。以 Gitee 为主仓库时，
+> 需要手动运行 `bash sync-upstream.sh` 后提交并推送。
 
 数据流：`上游仓库 → (每日 Action) → 本仓库 → (App 同步) → 你的 Claude`。
 
@@ -50,7 +56,7 @@ bash sync-upstream.sh
 git add -A && git commit -m "sync upstream" && git push
 ```
 
-## 首次推送到 GitHub
+## 首次推送到 Gitee
 
 ```bash
 cd market
@@ -58,9 +64,16 @@ git init
 git add .
 git commit -m "academic writing marketplace"
 git branch -M main
-git remote add origin https://github.com/<你的用户名>/<仓库名>.git
+git remote add origin https://gitee.com/<你的用户名>/<仓库名>.git
 git push -u origin main
 ```
 
-推送后到仓库 **Settings → Actions → General**，确认 Workflow permissions 允许
-**Read and write permissions**，否则自动同步无法回推。
+Gitee 推送时用户名填 Gitee 用户名，密码填**私人令牌**（设置 → 安全设置 → 私人令牌），不是登录密码。仓库需设为公开，Claude Desktop 用 Git URL 拉取时不带你的登录凭据。
+
+如果同时保留 GitHub 镜像，另加一个远端：
+
+```bash
+git remote add github https://github.com/<你的用户名>/<仓库名>.git
+```
+
+GitHub 侧的 **Settings → Actions → General** 需要允许 **Read and write permissions**，自动同步才能回推；Gitee 侧没有这个设置。
